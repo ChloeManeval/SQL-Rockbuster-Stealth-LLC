@@ -1,5 +1,4 @@
-To clean numerical data:
-
+--Descriptive statistics that have been used to clean numerical data:
 --summary of numerical values in the film table
 SELECT
 MIN(length) AS minimum_length,
@@ -16,8 +15,7 @@ MAX(replacement_cost) AS maximum_replacement_cost,
 AVG(replacement_cost) AS average_replacement_cost
 FROM film
 
-## To clean non-numerical data:
-
+--Descriptive statistics that have been used to clean non-numerical data:
 --summary of non-numerical values in the film table
 SELECT
 MODE() WITHIN GROUP (ORDER BY film_id) AS most_frequent_film_id, 
