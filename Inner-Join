@@ -1,0 +1,32 @@
+--Join several tables that each have a common key
+--First example: Find the top 10 countries in terms of number of customers
+
+SELECT D.country,
+COUNT (A.customer_id) AS number_of_customers
+FROM customer A
+INNER JOIN address B ON A.address_id = B.address_id
+INNER JOIN city C ON B.city_id = C.city_id
+INNER JOIN country D ON C.country_id = D.country_id
+GROUP BY D.country
+ORDER BY(number_of_customers) DESC
+LIMIT (10)
+
+--Second example : Find the top 5 customer from the top 10 cities who have paid the highest total amounts to
+SELECT A.customer_id,
+A.first_name AS first_name_of_customer,
+A.last_name AS last_name_of_customer,
+C.city,
+D.country,
+SUM(E.amount) AS amount_paid_by_customer
+FROM customer A
+INNER JOIN payment E on A.customer_id  = E.customer_id
+INNER JOIN address B ON A.address_id = B.address_id
+INNER JOIN city C ON B.city_id = C.city_id
+INNER JOIN country D ON C.country_id = D.country_id
+WHERE C.city IN ('Aurora','Acua','Citrus Heights','Iwaki','Ambattur','Shanwei',
+				 'So Leopoldo','Teboksary','Tianjin','Cianjur')
+GROUP BY A.customer_id,
+C.City,
+D.Country
+ORDER BY(amount_paid_by_customer) DESC
+LIMIT(5)
