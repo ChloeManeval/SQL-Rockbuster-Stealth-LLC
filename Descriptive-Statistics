@@ -1,0 +1,31 @@
+To clean numerical data:
+
+--summary of numerical values in the film table
+SELECT
+MIN(length) AS minimum_length,
+MAX(length) AS maximum_length,
+AVG(length) AS average_length,
+MIN(rental_duration) AS minimum_rental_duration,
+MAX(rental_duration) AS maximum_rental_duration,
+AVG(rental_duration) AS average_rental_duration,
+MIN(rental_rate) AS minimum_rental_rate,
+MAX(rental_rate) AS maximum_rental_rate,
+AVG(rental_rate) AS average_rental_rate,
+MIN(replacement_cost) AS minimum_replacement_cost,
+MAX(replacement_cost) AS maximum_replacement_cost,
+AVG(replacement_cost) AS average_replacement_cost
+FROM film
+
+## To clean non-numerical data:
+
+--summary of non-numerical values in the film table
+SELECT
+MODE() WITHIN GROUP (ORDER BY film_id) AS most_frequent_film_id, 
+MODE() WITHIN GROUP (ORDER BY title) AS most_frequent_title, 
+MODE() WITHIN GROUP (ORDER BY description) AS most_frequent_description,
+MODE() WITHIN GROUP (ORDER BY language_id) AS most_frequent_language_id, 
+MODE() WITHIN GROUP (ORDER BY rating) AS most_frequent_rate,
+MODE() WITHIN GROUP (ORDER BY last_update) AS most_frequent_last_update,
+MODE() WITHIN GROUP (ORDER BY special_features) AS most_frequent_special_features,
+MODE() WITHIN GROUP (ORDER BY fulltext) AS most_frequent_fulltext
+FROM film
