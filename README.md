@@ -6,7 +6,7 @@ Disclaimer: Rockbuster Stealth LLC is a fictitious company created by CareerFoun
 ## Tools used for this project:
 * PostgreSQL
 * Tableau Public
-##Structure of the data set
+## Structure of the data set
 * 2 fact tables 
 * 13 dimension tables
 More information can be found in this [data dictionary]( https://drive.google.com/file/d/1w9Zmq32SxpW1-1DmnxF2vYiHqAhOEQTo/view?usp=sharing). 
